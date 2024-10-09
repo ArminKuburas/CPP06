@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:02:34 by akuburas          #+#    #+#             */
-/*   Updated: 2024/10/09 13:15:13 by akuburas         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:42:25 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,37 @@ void ScalarConverter::convert(const std::string &literal)
 	else
 	{
 		std::cout << "impossible conversion!" << std::endl;
-		return
+		return;
 	}
+	printChar(value);
+	printInt(value);
+	printFloat(value);
+	printDouble(value);
+}
+
+bool ScalarConverter::isChar(const std::string &literal)
+{
+	return (literal.length() == 1 && !std::isdigit(literal[0]));
+}
+
+bool ScalarConverter::isInt(const std::string &literal)
+{
+	char *end;
+	std::strtol(literal.c_str(), &end, 10);
+	return (*end == '\0');
+}
+
+bool ScalarConverter::isFloat(const std::string &literal)
+{
+	if (literal == "-inff" || literal == "+inff" || literal == "nanf")
+		return true;
+	char *end;
+	std::strtof(literal.c_str(), &end);
+	return *end == 'f'
+	
+}
+
+bool ScalarConverter::isDouble(const std::string &literal)
+{
+	
 }
