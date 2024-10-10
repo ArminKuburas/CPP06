@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:02:34 by akuburas          #+#    #+#             */
-/*   Updated: 2024/10/10 06:15:10 by akuburas         ###   ########.fr       */
+/*   Updated: 2024/10/10 06:34:20 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void ScalarConverter::convert(const std::string &literal)
 		std::cout << "impossible conversion!" << std::endl;
 		return;
 	}
+	std::cout << "literal: " << literal << std::endl;
+	std::cout << "value: " << value << std::endl;
 	printChar(value);
 	printInt(value);
 	printFloat(value);
@@ -89,17 +91,28 @@ void ScalarConverter::printInt(double value)
 void ScalarConverter::printFloat(double value)
 {
 	std::cout << "float: ";
-	if (std::isnan(value) || value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max())
+	if ((value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max()) && !std::isinf(value))
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout << static_cast<float>(value) << "f" << std::endl;
+	{
+		float floatValue = static_cast<float>(value);
+		if (floatValue == static_cast<int>(floatValue))
+			std::cout << floatValue << ".0f" << std::endl;
+		else
+			std::cout << floatValue << "f" << std::endl;
+	}
 }
 
 void ScalarConverter::printDouble(double value)
 {
 	std::cout << "double: ";
-	if (std::isnan(value) || value < -std::numeric_limits<double>::max() || value > std::numeric_limits<double>::max())
+	if ((value < -std::numeric_limits<double>::max() || value > std::numeric_limits<double>::max()) && !std::isinf(value))
 		std::cout << "impossible" << std::endl;
 	else
-		std::cout << value << std::endl;
+	{
+		if (value == static_cast<int>(value))
+			std::cout << value << ".0" << std::endl;
+		else
+			std::cout << value << std::endl;
+	}
 }

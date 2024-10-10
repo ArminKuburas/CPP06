@@ -6,14 +6,14 @@
 #    By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 06:00:58 by akuburas          #+#    #+#              #
-#    Updated: 2024/10/10 06:01:26 by akuburas         ###   ########.fr        #
+#    Updated: 2024/10/10 06:19:35 by akuburas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C++ = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -std=c++11 -g
 
-NAME = exercise00
+NAME = convert
 
 SRCS = main.cpp ScalarConverter.cpp
 OBJS = $(SRCS:.cpp=.o)
