@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:02:34 by akuburas          #+#    #+#             */
-/*   Updated: 2024/10/10 06:34:20 by akuburas         ###   ########.fr       */
+/*   Updated: 2024/10/10 07:14:48 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void ScalarConverter::convert(const std::string &literal)
 		std::cout << "impossible conversion!" << std::endl;
 		return;
 	}
-	std::cout << "literal: " << literal << std::endl;
-	std::cout << "value: " << value << std::endl;
 	printChar(value);
 	printInt(value);
 	printFloat(value);
@@ -96,7 +94,7 @@ void ScalarConverter::printFloat(double value)
 	else
 	{
 		float floatValue = static_cast<float>(value);
-		if (floatValue == static_cast<int>(floatValue))
+		if (floatValue == static_cast<int>(floatValue) && floatValue < std::numeric_limits<float>::max())
 			std::cout << floatValue << ".0f" << std::endl;
 		else
 			std::cout << floatValue << "f" << std::endl;
@@ -110,7 +108,7 @@ void ScalarConverter::printDouble(double value)
 		std::cout << "impossible" << std::endl;
 	else
 	{
-		if (value == static_cast<int>(value))
+		if (value == static_cast<int>(value) && value < std::numeric_limits<double>::max())
 			std::cout << value << ".0" << std::endl;
 		else
 			std::cout << value << std::endl;
