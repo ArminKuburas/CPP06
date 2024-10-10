@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:02:34 by akuburas          #+#    #+#             */
-/*   Updated: 2024/10/09 15:42:25 by akuburas         ###   ########.fr       */
+/*   Updated: 2024/10/10 05:58:04 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,53 @@ bool ScalarConverter::isFloat(const std::string &literal)
 		return true;
 	char *end;
 	std::strtof(literal.c_str(), &end);
-	return *end == 'f'
+	return (*end == 'f');
 	
 }
 
 bool ScalarConverter::isDouble(const std::string &literal)
 {
-	
+	if (literal == "-inf" || literal == "+inf" || literal == "nan")
+		return true;
+	char *end;
+	std::strtod(literal.c_str(), &end);
+	return (*end == '\0');
+}
+
+void ScalarConverter::printChar(double value)
+{
+	std::cout << "char: ";
+	if (std::isnan(value) || value < 0 || value > std::numeric_limits<char>::max())
+		std::cout << "impossible" << std::endl;
+	else if (std::isprint(value))
+		std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
+	else
+		std::cout << "Non displayable" << std::endl;
+}
+
+void ScalarConverter::printInt(double value)
+{
+	std::cout << "int: ";
+	if (std::isnan(value) || value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(value) << std::endl;
+}
+
+void ScalarConverter::printFloat(double value)
+{
+	std::cout << "float: ";
+	if (std::isnan(value) || value < -std::numeric_limits<float>::max() || value > std::numeric_limits<float>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<float>(value) << "f" << std::endl;
+}
+
+void ScalarConverter::printDouble(double value)
+{
+	std::cout << "double: ";
+	if (std::isnan(value) || value < -std::numeric_limits<double>::max() || value > std::numeric_limits<double>::max())
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << value << std::endl;
 }
