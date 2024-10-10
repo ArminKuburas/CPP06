@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 12:22:49 by akuburas          #+#    #+#             */
-/*   Updated: 2024/10/09 13:02:30 by akuburas         ###   ########.fr       */
+/*   Updated: 2024/10/10 06:16:49 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class ScalarConverter
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &);
 		ScalarConverter &operator=(const ScalarConverter &);
+		~ScalarConverter();
 		
 		static bool isChar(const std::string &literal);
 		static bool isInt(const std::string &literal);
