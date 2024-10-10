@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 09:27:03 by akuburas          #+#    #+#             */
-/*   Updated: 2024/10/10 09:31:34 by akuburas         ###   ########.fr       */
+/*   Updated: 2024/10/10 09:45:32 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Base* generate(void)
 {
-	std:srand(std::time(nullptr));
+	std::srand(std::time(nullptr));
 	int random = std::rand() % 3;
 	try
 	{
@@ -22,20 +22,21 @@ Base* generate(void)
 		{
 			case 0:
 				std::cout << "Generated A" << std::endl;
-				return new A();
+				return (new A());
 			case 1:
 				std::cout << "Generated B" << std::endl;
-				return new B();
+				return (new B());
 			case 2:
 				std::cout << "Generated C" << std::endl;
-				return new C();
+				return (new C());
 		}
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
-		return nullptr;
+		return (nullptr);
 	}
+	return (nullptr);
 }
 
 void identify(Base* p)
