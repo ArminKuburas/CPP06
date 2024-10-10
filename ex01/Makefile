@@ -6,7 +6,7 @@
 #    By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 08:11:13 by akuburas          #+#    #+#              #
-#    Updated: 2024/10/10 08:11:21 by akuburas         ###   ########.fr        #
+#    Updated: 2024/10/10 08:11:58 by akuburas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++11 -g
 
 NAME = serialize
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp Serializer.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

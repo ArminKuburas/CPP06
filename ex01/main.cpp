@@ -6,7 +6,7 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 08:05:58 by akuburas          #+#    #+#             */
-/*   Updated: 2024/10/10 08:10:56 by akuburas         ###   ########.fr       */
+/*   Updated: 2024/10/10 08:12:15 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main()
 	data.s1 = "Hello";
 	data.n = 42;
 	data.s2 = "World";
-	data.f = 3.14f;
+	data.f = 42.42f;
 
 	uintptr_t raw = Serializer::serialize(&data);
 	Data *ptr = Serializer::deserialize(raw);
