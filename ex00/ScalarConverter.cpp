@@ -6,11 +6,19 @@
 /*   By: akuburas <akuburas@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:02:34 by akuburas          #+#    #+#             */
-/*   Updated: 2024/10/10 07:14:48 by akuburas         ###   ########.fr       */
+/*   Updated: 2024/10/10 07:42:40 by akuburas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter::ScalarConverter() {}
+
+ScalarConverter::~ScalarConverter() {}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &) {}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &) { return *this; }
 
 void ScalarConverter::convert(const std::string &literal)
 {
